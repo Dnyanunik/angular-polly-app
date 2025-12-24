@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class AuthService {
 
- private API_URL = 'https://my-polly-app.onrender.com/api/auth';
+ private API_URL = 'https://my-polly-app.onrender.com';
   constructor(private http: HttpClient) { }
 
 register(data: any) {
