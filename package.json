@@ -3,11 +3,9 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
-    "watch": "ng build --watch --configuration development",
-    "test": "ng test",
-    "serve:ssr:angular-polly-app": "node dist/angular-polly-app/server/server.mjs"
+  "start": "node index.js",
+  "build": "ng build --configuration production",
+  "render-build": "npm install && npm run build"
   },
   "prettier": {
     "printWidth": 100,
