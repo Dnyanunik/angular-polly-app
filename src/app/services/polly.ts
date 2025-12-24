@@ -6,8 +6,8 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class Polly {
-  
-  private apiUrl = 'http://localhost:3000'; // backend server
+
+  private apiUrl = 'https://my-polly-app.onrender.com'; // backend server
 
   constructor(private http: HttpClient) {}
 
