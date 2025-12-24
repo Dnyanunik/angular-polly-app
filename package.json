@@ -2,10 +2,12 @@
   "name": "angular-polly-app",
   "version": "0.0.0",
   "scripts": {
-    "ng": "ng",
-  "start": "node index.js",
-  "build": "ng build --configuration production",
-  "render-build": "npm install && npm run build"
+   "ng": "ng",
+    "start": "ng serve",
+    "build": "ng build",
+    "watch": "ng build --watch --configuration development",
+    "test": "ng test",
+    "serve:ssr:angular-polly-app": "node dist/angular-polly-app/server/server.mjs"
   },
   "prettier": {
     "printWidth": 100,
