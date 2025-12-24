@@ -1,0 +1,65 @@
+<section class="about-hero" (window:scroll)="onScroll()">
+
+  <!-- SVG WAVES -->
+  <svg class="wave-svg" viewBox="0 0 1440 320" preserveAspectRatio="none">
+    <path
+      [attr.fill]="currentWaveColor"
+      fill-opacity="0.35"
+      d="M0,160L48,165.3C96,171,192,181,288,170.7C384,160,480,128,576,112C672,96,768,96,864,117.3C960,139,1056,181,1152,186.7C1248,192,1344,160,1392,144L1440,128V0H0Z">
+    </path>
+  </svg>
+
+  <!-- CONTENT -->
+  <div class="about-content">
+
+    <h1>About Our Project</h1>
+
+    <p>
+      <strong>Serverless Text-to-Speech Accessibility Tool</strong> designed to
+      convert written content into lifelike speech for people with visual or
+      reading difficulties.
+    </p>
+
+    <!-- Emotion selector -->
+    <div class="emotion-control">
+      <label>Voice Emotion</label><br />
+      <select (change)="changeEmotion($event)">
+        <option value="neutral">Neutral</option>
+        <option value="happy">Happy</option>
+        <option value="calm">Calm</option>
+        <option value="serious">Serious</option>
+      </select>
+    </div>
+
+    <!-- Audio waveform -->
+    <div class="audio-wave">
+      <span *ngFor="let bar of bars"></span>
+    </div>
+
+    <!-- Cards -->
+    <div class="about-cards">
+      <div class="card">
+        <h2>Problem</h2>
+        <p>Web content is inaccessible to visually impaired users.</p>
+      </div>
+
+      <div class="card">
+        <h2>Solution</h2>
+        <p>Real-time serverless text-to-speech conversion.</p>
+      </div>
+
+      <div class="card">
+        <h2>Cloud Stack</h2>
+        <p>AWS Polly, Lambda, S3 or Azure Speech & Functions.</p>
+      </div>
+
+      <div class="card">
+        <h2>Future Scope</h2>
+        <p>Emotional AI powered real-time speech synthesis.</p>
+      </div>
+    </div>
+
+
+  </div>
+
+</section>

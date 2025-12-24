@@ -1,0 +1,32 @@
+<!-- NAVIGATION BAR -->
+<mat-toolbar class="navbar">
+  <span class="logo">Welcome To Text-to-Speech Converter</span>
+  <span class="spacer"></span>
+  <nav>
+    <a mat-button routerLink="/">Home</a>
+    <a mat-button routerLink="/about">About</a>
+    <a mat-button routerLink="/contact">Contact</a>
+    <button mat-raised-button class="login-btn" routerLink="/login">
+      Login / Signup
+    </button>
+  </nav>
+</mat-toolbar>
+
+<!-- HERO SECTION -->
+<section class="hero">
+  <div class="hero-content">
+    <h1>Welcome to Text Converter</h1>
+    <p>Explore our innovative modules and services.</p>
+    <button mat-raised-button class="start-btn" (click)="startService()">
+      Start Now
+    </button>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>&copy; 2025 Text-to-Speech_101 All Rights Reserved.</p>
+</footer>
+
+<!-- THEME SWITCHER -->
+<app-theme-switcher></app-theme-switcher>

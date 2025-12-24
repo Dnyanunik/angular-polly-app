@@ -1,0 +1,276 @@
+/* ================================
+   CSS VARIABLES (THEME)
+================================ */
+:root {
+  --bg-color: #ffffff;
+  --text-color: #111111;
+  --card-bg: rgba(255, 255, 255, 0.85);
+  --nav-bg: rgba(255, 255, 255, 0.95);
+  --border-color: #e0e0e0;
+  --btn-bg: #000000;
+  --btn-text: #ffffff;
+  --accent-color: #ff6b6b;
+}
+
+/* ================================
+   DARK MODE LAYERED
+================================ */
+body.dark-theme {
+  --bg-color: #1e1e1e;
+  --text-color: #f5f5f5;
+  --card-bg: rgba(35, 35, 35, 0.85);
+  --nav-bg: rgba(18, 18, 18, 0.95);
+  --border-color: #444;
+  --btn-bg: #ffffff;
+  --btn-text: #121212;
+  --accent-color: #ff6b6b;
+}
+
+/* ================================
+   GLOBAL
+================================ */
+* {
+  box-sizing: border-box;
+  transition: background 0.5s ease, color 0.5s ease;
+}
+
+html, body {
+  margin: 0;
+  min-height: 100%;
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  position: relative;
+}
+
+/* Floating background container */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(255,107,107,0.15) 0%, transparent 70%),
+              radial-gradient(circle, rgba(0,150,255,0.1) 0%, transparent 70%);
+  background-repeat: repeat;
+  animation: floatBg 30s linear infinite;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Floating animation */
+@keyframes floatBg {
+  0% { background-position: 0 0, 100% 100%; }
+  100% { background-position: 100% 100%, 0 0; }
+}
+
+h1, h2, h3, h4, h5, h6, p, span, a {
+  color: var(--text-color);
+  transition: color 0.5s ease;
+  position: relative;
+  z-index: 1; /* above floating background */
+}
+
+/* ================================
+   NAVBAR
+================================ */
+.navbar {
+  display: flex;
+  align-items: center;
+  padding: 0 24px;
+  background: var(--nav-bg);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border-color);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  animation: fadeDown 1s ease;
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #000000;
+}
+
+body.dark-theme .logo {
+  color: #000000;
+}
+
+.spacer { flex: 1; }
+
+.navbar nav a {
+  font-weight: 500;
+  margin-right: 16px;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.navbar nav a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  left: 0;
+  bottom: -4px;
+  background-color: var(--accent-color);
+  transition: width 0.3s ease;
+}
+
+.navbar nav a:hover::after { width: 100%; }
+.navbar nav a:hover { color: var(--accent-color); }
+
+/* ================================
+   BUTTONS
+================================ */
+.login-btn, .start-btn {
+  border-radius: 25px;
+  font-weight: 600;
+  transition: 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.login-btn {
+  padding: 8px 22px;
+  background: var(--btn-bg);
+  color: var(--btn-text);
+}
+
+.login-btn:hover { transform: scale(1.05); opacity: 0.9; }
+
+.start-btn {
+  padding: 12px 32px;
+  background: var(--btn-bg);
+  color: var(--btn-text);
+  border-radius: 30px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+.start-btn:hover { transform: translateY(-4px); box-shadow: 0 12px 30px rgba(0,0,0,0.3); }
+
+/* ================================
+   HERO SECTION
+================================ */
+.hero {
+  min-height: 85vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--bg-color);
+  position: relative;
+  z-index: 1;
+}
+
+.hero-content {
+  max-width: 800px;
+  padding: 3rem;
+  text-align: center;
+  background: var(--card-bg);
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--border-color);
+  border-radius: 24px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+  animation: fadeUp 1s ease;
+  z-index: 2;
+}
+
+.hero-content h1 { font-size: 3rem; margin-bottom: 1rem; }
+.hero-content p { font-size: 1.2rem; margin-bottom: 2rem; opacity: 0.9; }
+
+/* ================================
+   FOOTER
+================================ */
+footer {
+  text-align: center;
+  padding: 1.5rem;
+  margin-top: 2rem;
+  border-radius: 16px;
+  background-color: rgba(50, 50, 50, 0.6);
+  color: #000000;
+  border: 1px solid rgba(255,255,255,0.1);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+  position: relative;
+  z-index: 1;
+  transition: background 0.5s ease, color 0.5s ease;
+}
+
+body:not(.dark-theme) footer {
+  background-color: rgba(240, 240, 240, 0.6);
+  border: 1px solid rgba(0,0,0,0.1);
+}
+
+/* ================================
+   THEME SWITCHER
+================================ */
+app-theme-switcher {
+  position: fixed;
+  top: 80px;
+  right: 20px;
+  z-index: 200;
+  cursor: pointer;
+}
+
+/* ================================
+   ANIMATIONS
+================================ */
+@keyframes fadeUp { from { opacity: 0; transform: translateY(25px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes fadeDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
+
+/* Floating background animation is defined above */
+
+/* ================================
+   RESPONSIVE
+================================ */
+@media (max-width: 768px) {
+  .hero-content { padding: 2rem; }
+  .hero-content h1 { font-size: 2.2rem; }
+  .navbar nav a { margin-right: 10px; }
+  .start-btn { padding: 10px 22px; font-size: 1rem; }
+}
+
+/* ================================
+   HERO CONTENT FLOATING
+================================ */
+.hero-content {
+  max-width: 800px;
+  padding: 3rem;
+  text-align: center;
+  background: var(--card-bg);
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--border-color);
+  border-radius: 24px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+  animation: floatWater 6s ease-in-out infinite;
+  z-index: 2;
+}
+
+/* ================================
+   FOOTER FLOATING
+================================ */
+footer {
+  text-align: center;
+  padding: 1.5rem;
+  margin-top: 2rem;
+  border-radius: 16px;
+  background-color: rgba(50, 50, 50, 0.6);
+  color: #000000;
+  border: 1px solid rgba(255,255,255,0.1);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+  position: relative;
+  z-index: 1;
+  animation: floatWater 8s ease-in-out infinite;
+}
+
+/* ================================
+   FLOATING ANIMATION
+================================ */
+@keyframes floatWater {
+  0% { transform: translateY(0px) rotateX(0deg); }
+  25% { transform: translateY(-8px) rotateX(1deg); }
+  50% { transform: translateY(0px) rotateX(0deg); }
+  75% { transform: translateY(8px) rotateX(-1deg); }
+  100% { transform: translateY(0px) rotateX(0deg); }
+}

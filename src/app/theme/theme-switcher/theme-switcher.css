@@ -1,0 +1,19 @@
+.theme-btn {
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  background: var(--btn-bg);
+  color: var(--btn-text);
+  border-radius: 8px;
+  transition: 0.3s;
+}
+
+[data-theme="dark"] .theme-btn {
+  background: #222;
+  color: #fff;
+}
+
+[data-theme="light"] .theme-btn {
+  background: #ddd;
+  color: #000;
+}

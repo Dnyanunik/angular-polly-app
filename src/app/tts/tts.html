@@ -1,0 +1,79 @@
+<!-- NAVIGATION BAR -->
+<mat-toolbar color="primary" class="main-toolbar">
+  <span class="welcome-text">Welcome Back, {{ userName }}</span>
+
+  <span class="spacer"></span>
+
+  <button mat-icon-button [matMenuTriggerFor]="settingsMenu">
+    <mat-icon>settings</mat-icon>
+  </button>
+
+  <mat-menu #settingsMenu="matMenu">
+    <button mat-menu-item routerLink="/change-password">
+      <mat-icon>lock</mat-icon>
+      <span>Change Password</span>
+    </button>
+
+    <button mat-menu-item (click)="logout()">
+      <mat-icon>logout</mat-icon>
+      <span>Logout</span>
+    </button> </mat-menu>
+</mat-toolbar>
+<div class="container">
+
+  <mat-card class="tts-card">
+
+  <mat-toolbar color="primary" class="toolbar">
+    <span>Text To Speech Converter</span>
+  </mat-toolbar>
+
+  <!-- INPUT TEXT AREA -->
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Enter text</mat-label>
+    <textarea
+      matInput
+      rows="5"
+      [(ngModel)]="text">
+    </textarea>
+  </mat-form-field>
+
+  <!-- SELECT VOICE -->
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Select Voice</mat-label>
+    <mat-select [(value)]="voice">
+      <mat-option *ngFor="let v of voices" [value]="v">{{ v }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <!-- BUTTON -->
+  <button mat-raised-button color="accent"
+          class="full-width convert-btn"
+          (click)="convert()">
+    Convert to Speech
+  </button>
+
+  <!-- LOADING -->
+  <div class="center" *ngIf="loading">
+    <mat-spinner diameter="40"></mat-spinner>
+    <p>Generating audio...</p>
+  </div>
+
+  <!-- AUDIO PLAYER -->
+  <div *ngIf="audioUrl" class="audio-box">
+    <audio controls [src]="audioUrl"></audio>
+  </div>
+
+</mat-card>
+
+
+</div>
+<div class="water-layer layer1"></div>
+<div class="water-layer layer2"></div>
+<div class="water-layer layer3"></div>
+
+<div class="water-layer layer4"></div>
+<div class="water-layer layer5"></div>
+<div class="water-layer layer6"></div>
+<div class="water-layer layer7"></div>
+<div class="water-layer layer8"></div>
+<div class="water-layer layer9"></div>

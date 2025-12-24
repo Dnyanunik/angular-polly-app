@@ -1,0 +1,271 @@
+/* ===========================
+   GLOBAL & BODY
+=========================== */
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+
+  /* Animated multi-color background */
+  background: linear-gradient(270deg, #fbc2eb, #fbc2eb, #fbc2eb, #a6c1ee, #ff9a9e, #a1c4fd);
+  background-size: 1200% 1200%;
+  animation: bgFlow 20s ease infinite;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* ===========================
+   BACKGROUND ANIMATION
+=========================== */
+@keyframes bgFlow {
+  0% { background-position: 0% 50%; }
+  25% { background-position: 50% 50%; }
+  50% { background-position: 100% 50%; }
+  75% { background-position: 50% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ===========================
+   NAVIGATION WITH WAVES 🌊
+=========================== */
+.main-toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  overflow: hidden;
+  background: linear-gradient(135deg, rgba(0,80,150,0.85), rgba(0,120,200,0.75));
+  backdrop-filter: blur(12px);
+}
+
+/* NAVIGATION WATER WAVE */
+.main-toolbar::before {
+  content: "";
+  position: absolute;
+  top: -100%;
+  left: -100%;
+  width: 300%;
+  height: 300%;
+  background: radial-gradient(circle at center, rgba(173,216,230,0.35), rgba(0,100,180,0.15));
+  animation: navWave 18s ease-in-out infinite;
+  filter: blur(80px);
+  z-index: -1;
+}
+/* ===========================
+   FLOATING WATER LAYERS
+=========================== */
+body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at 50% 50%, rgba(9,149,230,0.3), rgba(0,105,148,0.1));
+  background-size: 50% 50%;
+  animation: waterFlow 30s linear infinite;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.water-layer {
+  position: fixed;
+  width: 200%;
+  height: 200%;
+  top: -50%;
+  left: -50%;
+  background: radial-gradient(circle at center, rgba(64,164,223,0.15), rgba(0,105,148,0.05));
+  border-radius: 50%;
+  animation: waterWave 25s linear infinite;
+  z-index: -2;
+}
+
+.layer1 { animation-delay: 0s; }
+.layer2 { animation-delay: 10s; }
+.layer3 { animation-delay: 20s; }
+
+@keyframes waterFlow {
+  0% { transform: translateX(0) translateY(0) scale(1); }
+  25% { transform: translateX(-5%) translateY(-2%) scale(1.02); }
+  50% { transform: translateX(-10%) translateY(2%) scale(1); }
+  75% { transform: translateX(-5%) translateY(-1%) scale(1.01); }
+  100% { transform: translateX(0%) translateY(0%) scale(1); }
+}
+
+@keyframes waterWave {
+  0%   { transform: translate(0,0) rotate(0deg); }
+  50%  { transform: translate(5%,2%) rotate(5deg); }
+  100% { transform: translate(0,0) rotate(0deg); }
+}
+
+/* ===========================
+   FULL-WINDOW SMOOTH WATER LAYER
+=========================== */
+body::before {
+  content: "";
+  position: fixed;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at center, rgba(64,164,223,0.25), rgba(0,105,148,0.1));
+  background-size: cover;
+  pointer-events: none;
+  z-index: -999;
+  animation: smoothWaterFlow 60s linear infinite;
+}
+
+@keyframes smoothWaterFlow {
+  0% { transform: translate(0%, 0%) rotate(0deg) scale(1); }
+  50% { transform: translate(-40%, 40%) rotate(1deg) scale(1.03); }
+  100% { transform: translate(0%, 0%) rotate(0deg) scale(1); }
+}
+
+/* ===========================
+   CARD (TTS) - PINK GRADIENT STYLE
+=========================== */
+.tts-card {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 30px;
+  border-radius: 25px;
+
+  /* Gradient background with semi-transparent effect */
+  background: linear-gradient(135deg, rgba(255,182,193,0.4), rgba(255,105,180,0.25), rgba(255,20,147,0.15));
+  backdrop-filter: blur(20px);
+
+  box-shadow: 0 15px 40px rgba(255,105,180,0.25), 0 10px 20px rgba(255,182,193,0.15);
+
+  animation: fadeFloat 1.2s ease-in-out, floatAnimation 4s ease-in-out infinite;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tts-card:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 20px 50px rgba(255,105,180,0.35), 0 15px 30px rgba(255,182,193,0.2);
+}
+
+/* ===========================
+   CARD HEADING - GRADIENT MATCH
+=========================== */
+.tts-card h2 {
+  font-size: 1.6rem;
+  margin-bottom: 15px;
+
+  background: linear-gradient(135deg, rgba(255,182,193,0.8), rgba(255,105,180,0.6), rgba(255,20,147,0.4));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 2px 5px rgba(255,105,180,0.25);
+}
+
+/* ===========================
+   CARD CONTENT STYLING
+=========================== */
+.tts-card p {
+  font-size: 1rem;
+  color: #660033;
+  line-height: 1.5;
+}
+
+.tts-card .full-width {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.tts-card .convert-btn {
+  background: linear-gradient(135deg, #ff6eb4, #ff3a8d);
+  color: #fff;
+  border-radius: 15px;
+  height: 50px;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.tts-card .convert-btn:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 10px 35px rgba(255,105,180,0.4);
+}
+
+/* Floating pink wave remains */
+.tts-card::before {
+  content: "";
+  position: absolute;
+  width: 300%;
+  height: 300%;
+  top: -100%;
+  left: -100%;
+  background: radial-gradient(circle at center, rgba(255,182,193,0.3), rgba(255,105,180,0.2), rgba(255,20,147,0.1));
+  filter: blur(120px);
+  animation: waveFlow 15s ease-in-out infinite;
+  z-index: 0;
+}
+
+/* ===========================
+   CARD ANIMATION
+=========================== */
+@keyframes fadeFloat {
+  from { opacity: 0; transform: translateY(25px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes floatAnimation {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+  100% { transform: translateY(0); }
+}
+
+/* ===========================
+   TEXT COLOR ANIMATION
+=========================== */
+.center {
+  text-align: center;
+  margin-top: 15px;
+  color: #333;
+  animation: textColorFlow 8s ease-in-out infinite;
+}
+
+@keyframes textColorFlow {
+  0% { color: #ff5f9e; }
+  25% { color: #ff758c; }
+  50% { color: #ffb3c1; }
+  75% { color: #ff9a9e; }
+  100% { color: #ff5f9e; }
+}
+
+/* ===========================
+   AUDIO BOX
+=========================== */
+.audio-box {
+  margin-top: 20px;
+  text-align: center;
+  animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+/* ===========================
+   NAVIGATION
+=========================== */
+.main-toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+}
+
+.welcome-text {
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.spacer { flex: 1 1 auto; }
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+@media (max-width: 768px) { .tts-card { margin: 20px 10px; } }
+@media (max-width: 480px) { .convert-btn { height: 40px; font-size: 0.9rem; } }

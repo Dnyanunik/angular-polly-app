@@ -1,0 +1,35 @@
+<div class="top-actions">
+  <button class="exit-btn" (click)="goToHome()" title="Exit to Home">
+    <span class="exit-icon">✕</span> Exit
+  </button>
+  <app-theme-switcher></app-theme-switcher>
+</div>
+
+<div class="login-wrapper">
+  <div class="login-card">
+    <h2 class="title">Welcome Back</h2>
+    <p class="subtitle">Login to continue</p>
+
+    <form #loginForm="ngForm" (ngSubmit)="onLogin(loginForm)">
+      <div class="input-group">
+        <input type="email" [(ngModel)]="email" name="email" required />
+        <label>Email Address</label>
+      </div>
+
+      <div class="input-group">
+        <input type="password" [(ngModel)]="password" name="password" required />
+        <label>Password</label>
+      </div>
+        
+      <button type="submit" class="btn-login">Login</button>
+      
+      <div *ngIf="message" [ngClass]="message.includes('successful') ? 'success-text' : 'error-text'" class="message-box">
+        {{ message }}
+      </div>
+
+      <div class="options">
+        <a routerLink="/register">Create Account</a>
+      </div>
+    </form>
+  </div>
+</div>

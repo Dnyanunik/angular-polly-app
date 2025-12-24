@@ -1,0 +1,53 @@
+<div class="top-actions">
+  <button class="exit-btn" (click)="goToHome()">
+    <span class="exit-icon">✕</span> Exit
+  </button>
+  <app-theme-switcher></app-theme-switcher>
+</div>
+
+<div class="login-wrapper">
+  <div class="login-card">
+    <h2 class="title">Create Account</h2>
+    <p class="subtitle">Register to continue</p>
+
+    <form #registerForm="ngForm" (ngSubmit)="onRegister(registerForm)">
+      
+      <div class="input-group">
+        <input type="text" name="name" [(ngModel)]="name" required #nameInput="ngModel" />
+        <label>Full Name</label>
+        <div class="error" *ngIf="nameInput.invalid && nameInput.touched">Name is required.</div>
+      </div>
+
+      <div class="input-group">
+        <input type="email" name="email" [(ngModel)]="email" required email #emailInput="ngModel" />
+        <label>Email Address</label>
+        <div class="error" *ngIf="emailInput.invalid && emailInput.touched">Enter a valid email.</div>
+      </div>
+
+      <div class="input-group">
+        <input type="password" name="password" [(ngModel)]="password" required minlength="6" #passwordInput="ngModel" />
+        <label>Password</label>
+        <div class="error" *ngIf="passwordInput.invalid && passwordInput.touched">Password min 6 chars.</div>
+      </div>
+
+      <div class="input-group">
+        <input type="password" name="confirmPassword" [(ngModel)]="confirmPassword" required #confirmPasswordInput="ngModel" />
+        <label>Confirm Password</label>
+        <div class="error" *ngIf="confirmPasswordInput.invalid && confirmPasswordInput.touched">Required.</div>
+        <div class="error" *ngIf="confirmPassword && password && password !== confirmPassword">Passwords do not match.</div>
+      </div>
+
+      <button type="submit" class="btn-login" [disabled]="registerForm.invalid || password !== confirmPassword">
+        Register
+      </button>
+
+      <div *ngIf="message" [ngClass]="message.includes('successful') ? 'success-text' : 'error-text'" class="message-box">
+        {{ message }}
+      </div>
+
+      <div class="options">
+        <p>Already have an account? <a routerLink="/login">Login</a></p>
+      </div>
+    </form>
+  </div>
+</div>
