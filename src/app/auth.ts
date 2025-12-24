@@ -9,7 +9,7 @@ export class AuthService {
   constructor(private http: HttpClient) { }
 
   register(data: any): Observable<any> {
-    return this.http.post(`${this.API_URL}/api/auth/regihttps://my-polly-app.onrender.comster`, data);
+    return this.http.post(`${this.API_URL}/api/auth/register`, data);
   }
 
   login(data: any): Observable<any> {
