@@ -4,12 +4,12 @@ import { Observable } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
-  private API_URL = 'https://angular-polly-app.onrender.com';
+  private API_URL = 'https://my-polly-app.onrender.com';
 
   constructor(private http: HttpClient) { }
 
   register(data: any): Observable<any> {
-    return this.http.post(`${this.API_URL}/api/auth/register`, data);
+    return this.http.post(`${this.API_URL}/api/auth/regihttps://my-polly-app.onrender.comster`, data);
   }
 
   login(data: any): Observable<any> {
