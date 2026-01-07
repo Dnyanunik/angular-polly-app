@@ -1,59 +1,209 @@
-# AngularPollyApp
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.4.
+🔊 Real-Time Text-to-Speech Conversion
 
-## Development server
+Serverless Cloud Computing Project
 
-To start a local development server, run:
+A serverless text-to-speech accessibility tool designed to help people with reading difficulties or visual impairments access text-based information through lifelike voice output.
+The application converts user-provided text into an audio file using cloud-based TTS services and delivers it in real time.
 
-```bash
+
+---
+
+🌍 Real-World Problem
+
+Many users face accessibility barriers when consuming text-heavy web content due to:
+
+Visual impairments
+
+Reading difficulties
+
+Learning disabilities
+
+
+This project addresses web accessibility by transforming text into natural-sounding speech that users can listen to anytime.
+
+
+---
+
+🎯 Project Scope
+
+Single-developer friendly
+
+Fully serverless architecture
+
+Pay-per-use model (remains within free tier during development)
+
+Scalable, cost-efficient, and cloud-native
+
+
+
+---
+
+🛠️ Tech Stack & Cloud Services
+
+☁️ Cloud Services
+
+Text-to-Speech API:
+
+Amazon Polly or Azure AI Speech
+
+
+Serverless Functions:
+
+AWS Lambda or Azure Functions
+
+
+Storage:
+
+Amazon S3 or Azure Blob Storage
+
+
+
+💻 Application Stack
+
+Frontend: Angular (Standalone Architecture)
+
+Backend Logic: Serverless Functions
+
+Hosting: Free static hosting platform
+
+
+
+---
+
+✨ Key Features
+
+🔤 Real-Time Text-to-Speech Conversion
+
+🎙️ Natural, Lifelike Voice Output
+
+♿ Accessibility-Focused Design
+
+☁️ Serverless Architecture (No Dedicated Servers)
+
+📁 Cloud Storage for Generated Audio Files
+
+⚡ Fast Response & Scalable Performance
+
+
+
+---
+
+🧠 How It Works
+
+1. User enters text in the web interface
+
+
+2. Text is sent to a serverless function
+
+
+3. Cloud TTS service converts text to speech
+
+
+4. Generated audio file is stored in cloud storage
+
+
+5. Audio is returned and played for the user
+
+
+
+
+---
+
+📂 Project Structure
+
+AngularPollyApp/
+├── src/
+│   ├── app/
+│   │   ├── components/      # UI components
+│   │   ├── services/        # API & TTS service calls
+│   │   └── app.component.ts
+│   ├── assets/              # Static assets
+│   └── styles.scss          # Global styles
+├── angular.json
+├── package.json
+└── README.md
+
+
+---
+
+🚀 Development Server
+
+To start the local development server:
+
 ng serve
-```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Open your browser and navigate to:
 
-## Code scaffolding
+http://localhost:4200/
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+The application will automatically reload on source file changes.
 
-```bash
+
+---
+
+🧩 Code Scaffolding
+
+Generate a new component using Angular CLI:
+
 ng generate component component-name
-```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+To view all available schematics:
 
-```bash
 ng generate --help
-```
 
-## Building
 
-To build the project run:
+---
 
-```bash
+🏗️ Build
+
+To build the project:
+
 ng build
-```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+Build artifacts will be stored in the dist/ directory.
+The production build is optimized for performance and speed.
 
-## Running unit tests
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+---
 
-```bash
+🧪 Running Unit Tests
+
+Run unit tests using Karma:
+
 ng test
-```
 
-## Running end-to-end tests
 
-For end-to-end (e2e) testing, run:
+---
 
-```bash
+🔁 Running End-to-End Tests
+
 ng e2e
-```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+Angular CLI does not include an e2e framework by default.
+You may integrate tools like Cypress or Playwright.
 
-## Additional Resources
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+---
+
+🔗 Output site
+
+https://angular-polly-app.onrender.com
+
+
+---
+
+👤 Author
+
+Dnyaneshwar Nikam
+
+🔗 LinkedIn:
+https://www.linkedin.com/in/dnyaneshwar-haridas-nikam
+
+
+---
+
+📌 Final Topic
+
+Real-Time Text-to-Speech Conversion using Serverless Cloud Computing
+
